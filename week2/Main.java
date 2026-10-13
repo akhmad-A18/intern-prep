@@ -41,12 +41,21 @@ class Task{
     }
 }
 
-public class Main{
-  public static void main(String[] args){
-    Task task = new Task(12345678, "java");
-    Task task2 = new Task(2, "spring");
-    task.setStatus(Status.DONE);
-    System.out.println(task);
-    System.out.println(task2);
-  }
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Task> tasks = new ArrayList<>();
+        tasks.add(new Task(1, "java"));
+        tasks.add(new Task(2, "SpringBoot"));
+        tasks.add(new Task(3, "intern"));
+        tasks.get(0).setStatus(Status.DONE);
+
+        int count = 0;
+        for (Task t : tasks) {
+            System.out.println(t);
+            if (t.getStatus() == Status.OPEN) {
+                count++;
+            }
+        }
+        System.out.println("The number of OPEN is " + count);
+    }
 }
